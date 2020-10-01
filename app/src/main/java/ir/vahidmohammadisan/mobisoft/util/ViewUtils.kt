@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.databinding.library.BuildConfig
 import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
+import ir.vahidmohammadisan.mobisoft.ui.home.fragment.MovieDetailsFragment
 
 /**
  * Created by VahidMohammadi on 03/09/2019.

@@ -4,11 +4,15 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import ir.vahidmohammadisan.mobisoft.BR
+import ir.vahidmohammadisan.mobisoft.R
 import ir.vahidmohammadisan.mobisoft.data.local.db.entities.Movie
+import ir.vahidmohammadisan.mobisoft.util.MovieID
 import ir.vahidmohammadisan.mobisoft.util.loadImage
 import kotlinx.android.synthetic.main.item_movie_fragment.view.*
 
@@ -56,10 +60,10 @@ class MovieHolder(
             e.printStackTrace()
         }
 
-/*        var bundle = bundleOf(festivalId!! to data.id.toString())
+        var bundle = bundleOf(MovieID to data.imdbID.toString())
         binding.root.setOnClickListener {
-            view.findNavController().navigate(R.id.festivalDetailsF, bundle)
-        }*/
+            view.findNavController().navigate(R.id.movieDetailsFragment, bundle)
+        }
 
     }
 }

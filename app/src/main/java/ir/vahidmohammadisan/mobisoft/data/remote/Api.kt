@@ -1,13 +1,15 @@
 package ir.vahidmohammadisan.mobisoft.data.remote
 
 import com.google.gson.GsonBuilder
-import ir.vahidmohammadisan.mobisoft.data.model.*
+import ir.vahidmohammadisan.mobisoft.data.local.db.entities.MovieDetails
+import ir.vahidmohammadisan.mobisoft.data.model.MovieTotal
 import ir.vahidmohammadisan.mobisoft.util.BaseUrl
 import ir.vahidmohammadisan.mobisoft.util.UnsafeOkHttpClient
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.*
+import retrofit2.http.GET
+import retrofit2.http.Query
 
 
 /**
@@ -15,8 +17,17 @@ import retrofit2.http.*
  */
 interface Api {
 
-    @GET("/?apikey=4f588b70&s=avatar")
-    suspend fun getMovieList(): Response<MovieTotal>
+    @GET("/")
+    suspend fun getMovieList(
+        @Query("s") p1: String,
+        @Query("apikey") p2: String
+    ): Response<MovieTotal>
+
+    @GET("/")
+    suspend fun getMovieDetailsList(
+        @Query("i") p1: String,
+        @Query("apikey") p2: String
+    ): Response<MovieDetails>
 
     companion object {
         operator fun invoke(

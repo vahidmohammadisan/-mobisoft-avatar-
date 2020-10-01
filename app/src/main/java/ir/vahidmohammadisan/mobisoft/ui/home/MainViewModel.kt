@@ -13,11 +13,18 @@ class MainViewModel(
 ) : ViewModel() {
 
     var viewCalback: ViewCalback? = null
+    var MovieID: String? = null
+
 
     val MovieList by lazyDeferred {
         repository.getMovies()
     }
 
-    fun clearAllData() = repository.clearAllData()
+    val MovieDetails by lazyDeferred {
+        repository.getMovieDetails(MovieID!!)
+    }
+
+    fun clearMovieData() = repository.clearMovieData()
+    fun clearMovieDetailsData() = repository.clearMovieDetailsData()
 
 }

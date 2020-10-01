@@ -7,3 +7,8 @@ data class MovieTotal(
     var totalResults: String,
     var Response: String?
 )
+
+data class MovieRating(
+    var Source: String,
+    var Value: String?
+)
