@@ -41,6 +41,12 @@ class Repository(
         }
     }
 
+    suspend fun getMovieDetailsLocal(id: String): LiveData<MovieDetails> {
+        return withContext(Dispatchers.IO) {
+            db.getMovieDetailsDao().getMovieDetailsWithId(id)
+        }
+    }
+
     suspend fun getMovieDetails(id: String): LiveData<MovieDetails> {
         return withContext(Dispatchers.IO) {
 
